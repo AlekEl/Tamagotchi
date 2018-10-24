@@ -24,12 +24,12 @@
                </image>
             </ImageView>
             <ButtonBar layoutX="200.0" layoutY="67.0" prefHeight="40.0" prefWidth="200.0" />
-            <ProgressBar layoutX="62.0" layoutY="58.0" prefWidth="200.0" progress="0.0" />
+            <ProgressBar layoutX="62.0" layoutY="58.0" prefWidth="200.0" progress="1.0" />
           <Button layoutX="17.0" layoutY="54.0" mnemonicParsing="false" text="Food" />
             <Button layoutX="300.0" layoutY="54.0" mnemonicParsing="false" text="Sleep" />
-            <ProgressBar layoutX="354.0" layoutY="58.0" prefWidth="200.0" progress="0.0" />
+            <ProgressBar layoutX="354.0" layoutY="58.0" prefWidth="200.0" progress="1.0" />
             <Button layoutX="588.0" layoutY="54.0" mnemonicParsing="false" text="Play" />
-            <ProgressBar layoutX="630.0" layoutY="58.0" prefWidth="200.0" progress="0.0" />
+            <ProgressBar layoutX="630.0" layoutY="58.0" prefWidth="200.0" progress="1.0" />
          </children>
       </AnchorPane>
    </children>
