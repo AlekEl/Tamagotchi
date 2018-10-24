@@ -1,4 +1,4 @@
-package sample;
+package tamagotchiGame;
 
 public class Controller {
 }
