@@ -20,16 +20,11 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("view/board.fxml"));
-        primaryStage.setTitle("Tamagotchi");
-        primaryStage.setScene(new Scene(root, 1280, 800));
-        primaryStage.show();
         Tamagotchi tamagotchi = new Tamagotchi();
-        View view = new View();
-        view.setUpBindings(tamagotchi, root);
-
+        GameLoop gameLoop = new GameLoop(primaryStage, tamagotchi);
+        gameLoop.initializeGame();
         Timer timer = new Timer();
-        timer.schedule(new GameLoop(tamagotchi), 0, 2000);
+        timer.schedule(gameLoop, 0, 2000);
 
     }
 

@@ -24,6 +24,10 @@ public class Tamagotchi {
         this.Food.setValue(1.0);
     }
 
+    public synchronized void sleep() {
+        this.Sleep.setValue(1.0);
+    }
+
     public synchronized void decreaseFood() {
         this.Food.setValue(this.Food.getValue() - 0.01);
         if (this.Food.getValue() <= 0.0) {
