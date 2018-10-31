@@ -11,12 +11,12 @@ import tamagotchiGame.view.View;
 import java.io.IOException;
 import java.util.TimerTask;
 
-public class GameLoop extends TimerTask {
+public class GameController extends TimerTask {
 
     private Tamagotchi tamagotchi;
     private Stage primaryStage;
 
-    public GameLoop(Stage primaryStage, Tamagotchi tamagotchi) {
+    public GameController(Stage primaryStage, Tamagotchi tamagotchi) {
         this.tamagotchi = tamagotchi;
         this.primaryStage = primaryStage;
     }
@@ -37,14 +37,12 @@ public class GameLoop extends TimerTask {
         primaryStage.setTitle("Tamagotchi");
         primaryStage.setScene(new Scene(root, 1280, 800));
         primaryStage.show();
-
-
     }
 
     public void run() {
         tamagotchi.decreaseFood();
-        System.out.println(tamagotchi.getFood());
-
+        tamagotchi.decreaseFun();
+        tamagotchi.decreaseSleep();
     }
 
     @FXML

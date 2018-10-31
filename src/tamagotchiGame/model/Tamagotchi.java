@@ -4,10 +4,6 @@ import javafx.application.Platform;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-
 public class Tamagotchi {
 
     private DoubleProperty Food = new SimpleDoubleProperty();
