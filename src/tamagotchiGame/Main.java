@@ -16,6 +16,7 @@ public class Main extends Application {
         gameController.initializeGame();
         Timer timer = new Timer();
         timer.schedule(gameController, 0, 2000);
+        primaryStage.setOnCloseRequest(e -> System.exit(0));
     }
 
     public static void main(String[] args) {
