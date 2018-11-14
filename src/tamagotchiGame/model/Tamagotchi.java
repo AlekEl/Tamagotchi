@@ -5,7 +5,7 @@ import javafx.beans.property.SimpleDoubleProperty;
 
 public class Tamagotchi {
 
-    private double fallValue = 0.08;
+    private double fallValue = 0.05;
     private DoubleProperty Food = new SimpleDoubleProperty();
     private DoubleProperty Fun = new SimpleDoubleProperty();
     private DoubleProperty Sleep = new SimpleDoubleProperty();
