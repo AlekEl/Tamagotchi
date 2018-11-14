@@ -40,9 +40,9 @@ public class GameController extends TimerTask {
     }
 
     public void run() {
+        tamagotchi.decreaseSleep();
         tamagotchi.decreaseFood();
         tamagotchi.decreaseFun();
-        tamagotchi.decreaseSleep();
     }
 
     @FXML
