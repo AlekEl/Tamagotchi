@@ -24,6 +24,14 @@ public class Tamagotchi {
         this.Sleep.setValue(1.0);
     }
 
+    public synchronized void haveFun() {
+        if (this.Fun.getValue() < 0.8) {
+            this.Fun.setValue(this.Fun.getValue() + 0.2);
+        } else {
+            this.Fun.setValue(1.0);
+        }
+    }
+
     public synchronized void decreaseFood() {
         this.Food.setValue(this.Food.getValue() - fallValue);
         if (this.Food.getValue() <= 0.0) {
@@ -45,14 +53,6 @@ public class Tamagotchi {
         }
     }
 
-    public synchronized void haveFun() {
-        if (this.Fun.getValue() < 0.8) {
-            this.Fun.setValue(this.Fun.getValue() + 0.2);
-        } else {
-            this.Fun.setValue(1.0);
-        }
-    }
-
     public synchronized DoubleProperty getFood() {
         return this.Food;
     }
@@ -65,7 +65,7 @@ public class Tamagotchi {
         return this.Sleep;
     }
 
-    public double getFallValue() {
+    double getFallValue() {
         return fallValue;
     }
 }
