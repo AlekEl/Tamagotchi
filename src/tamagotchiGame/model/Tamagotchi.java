@@ -65,4 +65,7 @@ public class Tamagotchi {
         return this.Sleep;
     }
 
+    public double getFallValue() {
+        return fallValue;
+    }
 }

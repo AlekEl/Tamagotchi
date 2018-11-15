@@ -6,11 +6,15 @@ import org.junit.jupiter.api.Test;
 
 class TamagotchiTest {
 
-    Tamagotchi tamagotchi;
+    private Tamagotchi tamagotchi;
+    private double fallValue = 0.0;
+    private double decreasedValue = 0.0;
 
     @BeforeEach
     void setUp() {
         this.tamagotchi = new Tamagotchi();
+        this.fallValue = tamagotchi.getFallValue();
+        this.decreasedValue = 1.0 - fallValue;
     }
 
     @Test
@@ -29,28 +33,28 @@ class TamagotchiTest {
     void decreaseFood() {
         tamagotchi.feed();
         tamagotchi.decreaseFood();
-        Assertions.assertEquals((Double) 0.95, tamagotchi.getFood().getValue());
+        Assertions.assertEquals((Double) decreasedValue, tamagotchi.getFood().getValue());
     }
 
     @Test
     void decreaseSleep() {
         tamagotchi.sleep();
         tamagotchi.decreaseSleep();
-        Assertions.assertEquals((Double) 0.95, tamagotchi.getSleep().getValue());
+        Assertions.assertEquals((Double) decreasedValue, tamagotchi.getSleep().getValue());
     }
 
     @Test
     void decreaseFun() {
         tamagotchi.haveFun();
         tamagotchi.decreaseFun();
-        Assertions.assertEquals((Double) 0.95, tamagotchi.getFun().getValue());
+        Assertions.assertEquals((Double) decreasedValue, tamagotchi.getFun().getValue());
     }
 
     @Test
     void haveFun() {
         tamagotchi.haveFun();
         tamagotchi.decreaseFun();
-        Assertions.assertEquals((Double) 0.95, tamagotchi.getFun().getValue());
+        Assertions.assertEquals((Double) decreasedValue, tamagotchi.getFun().getValue());
     }
 
 }
