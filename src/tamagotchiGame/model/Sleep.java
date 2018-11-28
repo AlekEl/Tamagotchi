@@ -3,9 +3,9 @@ package tamagotchiGame.model;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 
-public class Sleep {
+public class Sleep implements Runnable  {
 
-    private double fallValue = 0.08;
+    private double fallValue = 0.05;
     private DoubleProperty SleepValue = new SimpleDoubleProperty();
 
     public Sleep() {
@@ -31,4 +31,8 @@ public class Sleep {
         return fallValue;
     }
 
+    @Override
+    public void run() {
+        decreaseSleep();
+    }
 }

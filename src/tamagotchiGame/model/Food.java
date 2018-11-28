@@ -3,9 +3,9 @@ package tamagotchiGame.model;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 
-public class Food {
+public class Food implements Runnable {
 
-    private double fallValue = 0.08;
+    private double fallValue = 0.04;
     private DoubleProperty FoodValue = new SimpleDoubleProperty();
 
     public Food() {
@@ -31,4 +31,8 @@ public class Food {
         return fallValue;
     }
 
+    @Override
+    public void run() {
+        decreaseFood();
+    }
 }

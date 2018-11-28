@@ -46,9 +46,9 @@ public class GameController extends TimerTask {
     }
 
     public void run() {
-        sleep.decreaseSleep();
-        food.decreaseFood();
-        play.decreasePlay();
+        sleep.run();
+        food.run();
+        play.run();
     }
 
     @FXML
