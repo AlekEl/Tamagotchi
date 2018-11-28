@@ -6,55 +6,68 @@ import org.junit.jupiter.api.Test;
 
 class TamagotchiTest {
 
-    private Tamagotchi tamagotchi;
+    private Sleep sleep;
+    private Play play;
+    private Food food;
     private double fallValue = 0.0;
-    private double decreasedValue = 0.0;
+    private double sleepFalldValue = 0.0;
+    private double sleepDecreaseValue = 0.0;
+    private double playFallValue = 0.0;
+    private double playDecreaseValue = 0.0;
+    private double foodFallValue = 0.0;
+    private double foodDecreaseValue = 0.0;
 
     @BeforeEach
     void setUp() {
-        this.tamagotchi = new Tamagotchi();
-        this.fallValue = tamagotchi.getFallValue();
-        this.decreasedValue = 1.0 - fallValue;
+        this.sleep = new Sleep();
+        this.play = new Play();
+        this.food = new Food();
+        this.sleepFalldValue = sleep.getFallValue();
+        this.playFallValue = play.getFallValue();
+        this.foodFallValue = food.getFallValue();
+        this.sleepDecreaseValue = 1.0 - sleepFalldValue;
+        this.playDecreaseValue = 1.0 - playFallValue;
+        this.foodDecreaseValue = 1.0 - foodFallValue;
     }
 
     @Test
     void feed() {
-        tamagotchi.feed();
-        Assertions.assertEquals((Double) 1.0, tamagotchi.getFood().getValue());
+        food.feed();
+        Assertions.assertEquals((Double) 1.0, food.getFood().getValue());
     }
 
     @Test
     void sleep() {
-        tamagotchi.sleep();
-        Assertions.assertEquals((Double) 1.0, tamagotchi.getSleep().getValue());
+        sleep.sleep();
+        Assertions.assertEquals((Double) 1.0, sleep.getSleep().getValue());
     }
 
     @Test
     void decreaseFood() {
-        tamagotchi.feed();
-        tamagotchi.decreaseFood();
-        Assertions.assertEquals((Double) decreasedValue, tamagotchi.getFood().getValue());
+        food.feed();
+        food.decreaseFood();
+        Assertions.assertEquals((Double) foodDecreaseValue, food.getFood().getValue());
     }
 
     @Test
     void decreaseSleep() {
-        tamagotchi.sleep();
-        tamagotchi.decreaseSleep();
-        Assertions.assertEquals((Double) decreasedValue, tamagotchi.getSleep().getValue());
+        sleep.sleep();
+        sleep.decreaseSleep();
+        Assertions.assertEquals((Double) sleepDecreaseValue, sleep.getSleep().getValue());
     }
 
     @Test
     void decreaseFun() {
-        tamagotchi.haveFun();
-        tamagotchi.decreaseFun();
-        Assertions.assertEquals((Double) decreasedValue, tamagotchi.getFun().getValue());
+        play.haveFun();
+        play.decreasePlay();
+        Assertions.assertEquals((Double) playDecreaseValue, play.getPlay().getValue());
     }
 
     @Test
     void haveFun() {
-        tamagotchi.haveFun();
-        tamagotchi.decreaseFun();
-        Assertions.assertEquals((Double) decreasedValue, tamagotchi.getFun().getValue());
+        play.haveFun();
+        play.decreasePlay();
+        Assertions.assertEquals((Double) playDecreaseValue, play.getPlay().getValue());
     }
 
 }

@@ -5,7 +5,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import tamagotchiGame.model.Tamagotchi;
+import tamagotchiGame.model.Food;
+import tamagotchiGame.model.Play;
+import tamagotchiGame.model.Sleep;
 import tamagotchiGame.view.View;
 
 import java.io.IOException;
@@ -13,11 +15,15 @@ import java.util.TimerTask;
 
 public class GameController extends TimerTask {
 
-    private Tamagotchi tamagotchi;
+    private Food food;
+    private Sleep sleep;
+    private Play play;
     private Stage primaryStage;
 
-    public GameController(Stage primaryStage, Tamagotchi tamagotchi) {
-        this.tamagotchi = tamagotchi;
+    public GameController(Stage primaryStage, Food food, Sleep sleep, Play play) {
+        this.food = food;
+        this.sleep = sleep;
+        this.play = play;
         this.primaryStage = primaryStage;
     }
 
@@ -33,31 +39,31 @@ public class GameController extends TimerTask {
 
         System.out.println("ROOT: " + root);
         View view = new View();
-        view.setUpBindings(tamagotchi, root);
+        view.setUpBindings(food, sleep, play, root);
         primaryStage.setTitle("Tamagotchi");
         primaryStage.setScene(new Scene(root, 1280, 800));
         primaryStage.show();
     }
 
     public void run() {
-        tamagotchi.decreaseSleep();
-        tamagotchi.decreaseFood();
-        tamagotchi.decreaseFun();
+        sleep.decreaseSleep();
+        food.decreaseFood();
+        play.decreasePlay();
     }
 
     @FXML
     void haveFun() {
-        this.tamagotchi.haveFun();
+        this.play.haveFun();
     }
 
     @FXML
     public void feed() {
-        this.tamagotchi.feed();
+        this.food.feed();
     }
 
     @FXML
     public void sleep() {
-        this.tamagotchi.sleep();
+        this.sleep.sleep();
     }
 
 }
