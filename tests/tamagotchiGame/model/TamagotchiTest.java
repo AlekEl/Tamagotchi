@@ -9,12 +9,8 @@ class TamagotchiTest {
     private Sleep sleep;
     private Play play;
     private Food food;
-    private double fallValue = 0.0;
-    private double sleepFalldValue = 0.0;
     private double sleepDecreaseValue = 0.0;
-    private double playFallValue = 0.0;
     private double playDecreaseValue = 0.0;
-    private double foodFallValue = 0.0;
     private double foodDecreaseValue = 0.0;
 
     @BeforeEach
@@ -22,9 +18,9 @@ class TamagotchiTest {
         this.sleep = new Sleep();
         this.play = new Play();
         this.food = new Food();
-        this.sleepFalldValue = sleep.getFallValue();
-        this.playFallValue = play.getFallValue();
-        this.foodFallValue = food.getFallValue();
+        double sleepFalldValue = sleep.getFallValue();
+        double playFallValue = play.getFallValue();
+        double foodFallValue = food.getFallValue();
         this.sleepDecreaseValue = 1.0 - sleepFalldValue;
         this.playDecreaseValue = 1.0 - playFallValue;
         this.foodDecreaseValue = 1.0 - foodFallValue;
