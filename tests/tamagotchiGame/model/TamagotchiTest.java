@@ -28,12 +28,14 @@ class TamagotchiTest {
 
     @Test
     void feed() {
+        food.decreaseFood();
         food.feed();
         Assertions.assertEquals((Double) 1.0, food.getFood().getValue());
     }
 
     @Test
     void sleep() {
+        sleep.decreaseSleep();
         sleep.sleep();
         Assertions.assertEquals((Double) 1.0, sleep.getSleep().getValue());
     }
