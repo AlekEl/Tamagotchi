@@ -6,7 +6,6 @@ import tamagotchiGame.view.DeathAlertBox;
 
 public class Play implements Runnable  {
 
-    DeathAlertBox box = new DeathAlertBox();
     private double fallValue = 0.08;
     private DoubleProperty PlayValue = new SimpleDoubleProperty();
 

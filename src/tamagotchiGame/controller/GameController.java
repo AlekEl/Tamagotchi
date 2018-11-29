@@ -22,16 +22,17 @@ public class GameController extends TimerTask {
     private Play play;
     private Stage primaryStage;
     private DeathAlertBox box = new DeathAlertBox();
-    private boolean isGotchiAlive = true;
+    private boolean isGotchiAlive;
 
-    public GameController(Stage primaryStage, Food food, Sleep sleep, Play play) {
-        this.food = food;
-        this.sleep = sleep;
-        this.play = play;
+    public GameController(Stage primaryStage) {
         this.primaryStage = primaryStage;
     }
 
     public void initializeGame() {
+        isGotchiAlive = true;
+        food = new Food();
+        sleep = new Sleep();
+        play = new Play();
         Parent root = null;
         try {
             FXMLLoader GameLoader = new FXMLLoader(getClass().getResource("../view/board.fxml"));
@@ -59,7 +60,7 @@ public class GameController extends TimerTask {
     private void checkIfGotchiIsAlive() {
         if(food.getFood().getValue() <= 0 || play.getPlay().getValue() <= 0 || sleep.getSleep().getValue() <= 0) {
             isGotchiAlive = false;
-            box.showAlert();
+            box.showAlert(this);
         }
     }
 
