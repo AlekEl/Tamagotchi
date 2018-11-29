@@ -2,9 +2,11 @@ package tamagotchiGame.model;
 
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
+import tamagotchiGame.view.DeathAlertBox;
 
 public class Play implements Runnable  {
 
+    DeathAlertBox box = new DeathAlertBox();
     private double fallValue = 0.08;
     private DoubleProperty PlayValue = new SimpleDoubleProperty();
 
@@ -19,7 +21,7 @@ public class Play implements Runnable  {
     public synchronized void decreasePlay() {
         this.PlayValue.setValue(this.PlayValue.getValue() - fallValue);
         if (this.PlayValue.getValue() <= 0.0) {
-            System.exit(0);
+
         }
     }
 

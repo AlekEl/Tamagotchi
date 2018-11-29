@@ -1,5 +1,6 @@
 package tamagotchiGame.controller;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -8,6 +9,7 @@ import javafx.stage.Stage;
 import tamagotchiGame.model.Food;
 import tamagotchiGame.model.Play;
 import tamagotchiGame.model.Sleep;
+import tamagotchiGame.view.DeathAlertBox;
 import tamagotchiGame.view.View;
 
 import java.io.IOException;
@@ -19,6 +21,8 @@ public class GameController extends TimerTask {
     private Sleep sleep;
     private Play play;
     private Stage primaryStage;
+    private DeathAlertBox box = new DeathAlertBox();
+    private boolean isGotchiAlive = true;
 
     public GameController(Stage primaryStage, Food food, Sleep sleep, Play play) {
         this.food = food;
@@ -46,9 +50,30 @@ public class GameController extends TimerTask {
     }
 
     public void run() {
-        sleep.run();
-        food.run();
-        play.run();
+        food.decreaseFood();
+        sleep.decreaseSleep();
+        play.decreasePlay();
+        checkIfGotchiIsAlive();
+    }
+
+    private void checkIfGotchiIsAlive() {
+        if(food.getFood().getValue() <= 0 || play.getPlay().getValue() <= 0 || sleep.getSleep().getValue() <= 0) {
+            isGotchiAlive = false;
+            box.showAlert();
+        }
+    }
+
+    public void start() {
+        new Thread(() -> {
+            while(isGotchiAlive) {
+                try{
+                    Platform.runLater(this);
+                    Thread.sleep(2000);
+                } catch(InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
     }
 
     @FXML

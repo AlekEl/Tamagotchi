@@ -7,8 +7,6 @@ import tamagotchiGame.model.Food;
 import tamagotchiGame.model.Play;
 import tamagotchiGame.model.Sleep;
 
-import java.util.Timer;
-
 public class Main extends Application {
 
     @Override
@@ -18,8 +16,7 @@ public class Main extends Application {
         Play play = new Play();
         GameController gameController = new GameController(primaryStage, food, sleep, play);
         gameController.initializeGame();
-        Timer timer = new Timer();
-        timer.schedule(gameController, 0, 2000);
+        gameController.start();
         primaryStage.setOnCloseRequest(e -> System.exit(0));
     }
 
