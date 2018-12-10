@@ -41,8 +41,6 @@ public class GameController extends TimerTask {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        System.out.println("ROOT: " + root);
         View view = new View();
         view.setUpBindings(food, sleep, play, root);
         primaryStage.setTitle("Tamagotchi");
